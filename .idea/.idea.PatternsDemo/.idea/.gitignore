@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.PatternsDemo.iml
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../:\ReposNew\2021\PatternsDemo\.idea\.idea.PatternsDemo\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
