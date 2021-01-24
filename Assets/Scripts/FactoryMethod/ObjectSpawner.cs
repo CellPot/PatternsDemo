@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FabricMethod;
 using UnityEngine;
 
-namespace FabricMethod
+namespace FactoryMethod
 {
     public class ObjectSpawner : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace FabricMethod
             {
                 while (_cubeCount < cubeAmount)
                 {
-                    CubeObject cube = cubeFactory.GetNewInstance();
+                    MonoBehaviour cube = cubeFactory.GetNewInstance();
                     cube.transform.SetPositionAndRotation(gameObject.transform.position,gameObject.transform.rotation);
                     _cubeCount++;
                 }
