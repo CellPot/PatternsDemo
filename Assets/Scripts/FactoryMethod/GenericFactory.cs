@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GenericFactory<T> : MonoBehaviour where T : MonoBehaviour
+namespace FactoryMethod
 {
-    [SerializeField] private T prefab;
-
-    public T GetNewInstance()
+    public class GenericFactory<T> : MonoBehaviour where T : MonoBehaviour
     {
-        return Instantiate(prefab);
-    }
+        [SerializeField] private T prefab;
 
-    public T GetNewInstance(Vector3 position, Quaternion rotation)
-    {
-        return Instantiate(prefab, position, rotation);
+        public T GetNewInstance()
+        {
+            return Instantiate(prefab);
+        }
+
+        public T GetNewInstance(Vector3 position, Quaternion rotation)
+        {
+            return Instantiate(prefab, position, rotation);
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace FabricMethod
+﻿namespace FactoryMethod
 {
     public class CubeFactory : GenericFactory<CubeObject>
     {

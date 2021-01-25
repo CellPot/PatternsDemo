@@ -1,5 +1,4 @@
-﻿using FabricMethod;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FactoryMethod
 {

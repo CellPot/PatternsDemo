@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 
-public class PlayerManager : Singleton<PlayerManager>
+namespace Singleton
 {
-
-    [SerializeField] Player player;
-
-    protected PlayerManager() { }
-
-    protected override void Awake()
+    public class PlayerManager : Singleton<PlayerManager>
     {
-        base.Awake();
-        if (player == null)
+
+        [SerializeField] Player player;
+
+        protected PlayerManager() { }
+
+        protected override void Awake()
         {
-            player = (Player)FindObjectOfType(typeof(Player));
-        }
+            base.Awake();
+            if (player == null)
+            {
+                player = (Player)FindObjectOfType(typeof(Player));
+            }
         
-    }
+        }
 
-    public string GetPlayerStatus()
-    {
-        return $"Player's health: {player?.Health}";
+        public string GetPlayerStatus()
+        {
+            return $"Player's health: {player?.Health}";
+        }
     }
 }

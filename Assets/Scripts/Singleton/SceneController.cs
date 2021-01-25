@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class SceneController : MonoBehaviour
+namespace Singleton
 {
-    private void Update()
+    public class SceneController : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        private void Update()
         {
-            var playerStatus = PlayerManager.Instance.GetPlayerStatus();
-            Debug.Log(playerStatus);
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                var playerStatus = PlayerManager.Instance.GetPlayerStatus();
+                Debug.Log(playerStatus);
+            }
         }
     }
 }

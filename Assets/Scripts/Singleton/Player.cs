@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace Singleton
 {
+    public class Player : MonoBehaviour
+    {
 
-    [SerializeField] private float health;
+        [SerializeField] private float health;
 
-    public float Health { get => health; }
+        public float Health { get => health; }
 
 
+    }
 }

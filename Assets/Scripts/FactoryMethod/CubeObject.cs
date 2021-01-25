@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FabricMethod
+namespace FactoryMethod
 {
     public class CubeObject : MonoBehaviour
     {
