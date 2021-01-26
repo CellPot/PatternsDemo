@@ -7,35 +7,53 @@ namespace CommandPattern
     {
         [SerializeField] private MovementController controller;
         [SerializeField] private Player player;
-        private Command buttonMouse0;
-        private Command buttonMouse1;
+        private CommandsNavigator _commandsNav;
+        private Command _keyMouse0;
+        private Command _keyMouse1;
+        private Command _keySpace;
 
         private void Awake()
         {
-            buttonMouse0 = new MoveCommand(controller, 1f, 1f);
-            buttonMouse1 = new FireCommand(player);
+            _commandsNav = new CommandsNavigator();
+            _keyMouse0 = new MoveCommand(controller, 1f, 1f);
+            _keyMouse1 = new FireCommand(player);
+            _keySpace = new DoNothingCommand();
         }
-
         private void Update()
         {
             HandleInput();
         }
-
         private void HandleInput()
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
+                ExecuteNewCommand(_keyMouse0);
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                ExecuteNewCommand(_keyMouse1);
+            if (Input.GetKeyDown(KeyCode.Space))
+                ExecuteNewCommand(_keySpace);
+            if (Input.GetKeyDown(KeyCode.P))
+                SwapKeyBinding(ref _keyMouse0,ref _keyMouse1);
+            if (Input.GetKeyDown(KeyCode.Z))
             {
-                buttonMouse0.Execute();
-            }
-            else if (Input.GetKeyDown(KeyCode.U))
-            {
-                buttonMouse0.Undo();
+                _commandsNav.UndoPreviousCommand();
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.X))
             {
-                buttonMouse1.Execute();
+                _commandsNav.RedoNextCommand();
             }
+        }
+        private void ExecuteNewCommand(Command command)
+        {
+            command.Execute();
+            _commandsNav.AddToUndo(command);
+            _commandsNav.ClearRedo();
+        }
+        private void SwapKeyBinding(ref Command key1, ref Command key2)
+        {
+            Command temp = key1;
+            key1 = key2;
+            key2 = temp;
         }
     }
 }

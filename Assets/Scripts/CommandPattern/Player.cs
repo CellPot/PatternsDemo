@@ -13,7 +13,7 @@ namespace CommandPattern
         public void UnFire()
         {
             FireCount--;
-            Debug.Log($"Total: {FireCount.ToString()}");
+            Debug.Log($"Somehow unfired! Total fires: {FireCount.ToString()}");
         }
         
     }
