@@ -150,6 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36184accc3449dca8670ee07caecdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon0: {fileID: 2757370121268702841, guid: 37b5c2f40c126a3468d60573b2bb96c3, type: 3}
+  weapon1: {fileID: 9058776089414747885, guid: a11ed1018ce8eaa4c8be6b5c4dfc443a, type: 3}
+  weaponAmount: 1000
 --- !u!4 &567280450
 Transform:
   m_ObjectHideFlags: 0
