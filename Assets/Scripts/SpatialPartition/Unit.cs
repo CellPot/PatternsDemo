@@ -6,6 +6,9 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
    private Vector2 _initPosition;
+   private Unit _prevUnit;
+   private Unit _nextUnit;
+   public Grid 
 
    private void Awake()
    {
@@ -25,9 +28,13 @@ public class Grid
 
    private Unit[,] _cells;
 
-   public Grid()
+   public Grid(int cellsNum, int cellSize)
    {
+      CellsNum = cellsNum;
+      CellSize = cellSize;
       _cells  = new Unit[CellsNum, CellsNum];
+      Clear();
+      
    }
    
    public void Clear()
@@ -39,5 +46,15 @@ public class Grid
             _cells[i, j] = null;
          }
       }
+   }
+}
+
+public class BattleController : MonoBehaviour
+{
+   private Grid gameGrid;
+
+   private void Awake()
+   {
+      gameGrid = new Grid(10, 20);
    }
 }
